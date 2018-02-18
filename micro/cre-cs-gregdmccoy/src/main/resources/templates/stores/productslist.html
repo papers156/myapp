@@ -1,0 +1,54 @@
+<html layout:decorator="layout">
+
+<div layout:fragment="content">
+
+
+
+    <table class="table table-striped" id="posts_list">
+
+        <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Product ID</th>
+            <th>Store ID</th>
+            <th>Price</th>
+
+
+
+
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-th-each="store : ${stores}">
+            <td class="message" data-th-text="${store.message}"></td>
+
+            <td>
+                <a th:href="@{'/stores/{id}/delete'(id=${store.id})}" class="delete" th:attr="name=${store.message}">
+                        <span class="fa-stack">
+                            <i class="glyphicon glyphicon-object-align-bottom"></i>
+                        </span>
+                </a>
+            </td>
+
+
+
+            <td>
+                <a th:href="@{'/stores/{id}/edit'(id=${store.id})}" class="edit" th:attr="name=${store.message}">
+                    <span class="fa-stack">
+                        <i class="glyphicon glyphicon-send"></i>
+                    </span>
+
+                </a>
+            </td>
+
+
+
+
+        </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="/cre/gregdmccoy/products/new">Add New Product</a>
+</div>
+</html>
